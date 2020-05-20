@@ -4,6 +4,6 @@ class Critic < ApplicationRecord
     with: /\A[a-zA-Z0-9]+\z/,
     message: "only alphanumeric allowed",
   }
-  validates :body, presence: {"Please write something!"}
-  validates :title, presence: {"Please write something!"}
+  validates :body, presence: { message: "Please write something!"}
+  validates :title, presence: { message: "Please write something!"}
 end
