@@ -30,6 +30,15 @@ class GamesController < ApplicationController
     render json: { status: 'Successfully destroyed', data: @game }, status: :ok
   end
 
+  def update
+    @game = Game.find(params[:id]) #Find the game you want to update
+    if @game.update_attributes(game_params) # Validation using the same private method as before
+      render json: @game # render the updated record back
+    else
+      render_error(game.errors, :unprocessable_entity) # render errors
+    end
+  end
+
   private
 
   def game_params

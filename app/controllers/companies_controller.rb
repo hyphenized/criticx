@@ -25,6 +25,15 @@ class CompaniesController < ApplicationController
     render json: { status: 'Successfully destroyed', data: @company }, status: :ok
   end
 
+  def update
+    @company = Company.find(params[:id]) #Find the company you want to update
+    if @company.update_attributes(company_params) # Validation using the same private method as before
+      render json: @company # render the updated record back
+    else
+      render_error(company.errors, :unprocessable_entity) # render errors
+    end
+  end
+
   private
 
   def company_params
