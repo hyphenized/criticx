@@ -8,5 +8,9 @@ class GamesController < ApplicationController
     render plain: "Test Route"
   end
 
+  def show
+    @game = Game.find(params[:id]) # Get an specific game using the id of the URL
+    render json: @game # render the specific game using json format
+  end
 
 end
