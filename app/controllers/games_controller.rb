@@ -24,6 +24,12 @@ class GamesController < ApplicationController
     end
   end
 
+  def destroy
+    @game = Game.find(params[:id]) # Find the game you want to destroy.
+    @game.destroy # Destroy it.
+    render json: { status: 'Successfully destroyed', data: @game }, status: :ok
+  end
+
   private
 
   def game_params
