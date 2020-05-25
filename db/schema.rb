@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_25_131616) do
+ActiveRecord::Schema.define(version: 2020_05_25_133929) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -80,6 +80,9 @@ ActiveRecord::Schema.define(version: 2020_05_25_131616) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "parent_type", null: false
+    t.bigint "parent_id", null: false
+    t.index ["parent_type", "parent_id"], name: "index_reviews_on_parent_type_and_parent_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
