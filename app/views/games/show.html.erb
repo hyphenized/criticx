@@ -1,0 +1,30 @@
+<h1><%= @game.name %></h1>
+<table>
+  <thead>
+    <th>Release Date</th>
+    <th>Rating</th>
+    <th>Category</th>
+    <th>Genres</th>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <strong><%= @game.release_date %></strong>
+      </td>
+      <td>
+        <strong><%= @game.rating %></strong>
+      </td>
+      <td>
+        <strong><%= @game.category %></strong>
+      </td>
+      <td>
+        <%= @game.genres.map{|genre| genre.name}.join(', ') %>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>
+  <strong>Platforms: </strong><%= @game.platforms.map{|p| p.name }.join(', ') %>
+</p>
+<p><%= @game.summary %></p>
+<%= link_to 'Back', games_path %>
