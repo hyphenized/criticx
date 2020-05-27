@@ -15,12 +15,7 @@ end
 def load_companies
   puts "Loading Companies..."
   load_json('companies.json').each do |company|
-    data = {
-      name: company["name"],
-      country: company["country"],
-      start_date: Date.parse(company["start_date"]),
-    }
-    Company.find_or_create_by!(data)
+    Company.find_or_create_by!(company)
   end
 end
 
@@ -46,7 +41,7 @@ def load_games
     data = {
       name: game["name"],
       summary: game["summary"],
-      release_date: Date.parse(game["release_date"]),
+      release_date: game["release_date"],
       category: game["category"],
       rating: game["rating"],
     }
