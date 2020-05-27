@@ -2,7 +2,8 @@ class User < ApplicationRecord
   has_many :reviews
   validates :username, :email, presence: true, uniqueness: true
   validate :at_least_16yr_old
-
+  has_secure_password
+  
   private
 
   def at_least_16yr_old
