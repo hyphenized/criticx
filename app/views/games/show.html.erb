@@ -28,3 +28,4 @@
 </p>
 <p><%= @game.summary %></p>
 <%= link_to 'Back', games_path %>
+<%=link_to "Delete this Game", game_path(@game), method: :delete, data: { confirm: "Really delete the game?" } %>

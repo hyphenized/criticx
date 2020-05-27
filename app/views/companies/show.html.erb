@@ -3,3 +3,4 @@
 <strong><%= @company.start_date %></strong>
 <p><%= @company.description %></p>
 <%= link_to 'Back', companies_path %>
+<%=link_to "Delete this Company", company_path(@company), method: :delete, data: { confirm: "Really delete the company?" } %>
